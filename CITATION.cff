@@ -1,0 +1,19 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+---
+cff-version: 1.2.0
+title: OME-IRIS
+message: >-
+  If you use this software, please cite it using the
+  metadata from the CITATION.cff file.
+type: software
+authors:
+  - given-names: Dave
+    family-names: Bunten
+    orcid: "https://orcid.org/0000-0001-6041-3665"
+repository-code: "https://github.com/wayscience/OME-IRIS"
+abstract: >-
+  Open Microscopy Environment (OME) Interoperable Reference Imaging Sets (IRIS) for reproducible benchmarking and validation of imaging data, analytical outputs, and bioimaging workflows.
+keywords:
+  - python
+license: BSD-3-Clause
