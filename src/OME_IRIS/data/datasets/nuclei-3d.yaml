@@ -1,0 +1,61 @@
+---
+id: nuclei-3d
+name: 3D nuclei (CP_tutorial_3D_noise_nuclei_segmentation) example
+description: >-
+  Small 3D nuclei segmentation benchmark sample with image and mask files.
+tier: tiny
+license: CC-BY-4.0
+source_identifier: CP_tutorial_3D_noise_nuclei_segmentation
+source:
+  repository: https://github.com/cytomining/CytoDataFrame
+  path: tests/data/CP_tutorial_3D_noise_nuclei_segmentation
+  url: >-
+    https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/CP_tutorial_3D_noise_nuclei_segmentation
+formats:
+  - csv
+  - tif
+  - tiff
+files:
+  - path: profiles.csv
+    url: >-
+      https://github.com/cytomining/CytoDataFrame/raw/refs/heads/main/tests/data/CP_tutorial_3D_noise_nuclei_segmentation/output/MyExpt_RealsizeNuclei.csv
+    custom_metadata:
+      role: profile_table
+  - path: images
+    kind: directory
+    url: >-
+      https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/CP_tutorial_3D_noise_nuclei_segmentation/input
+    custom_metadata:
+      role: image_bundle
+  - path: masks
+    kind: directory
+    url: >-
+      https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/CP_tutorial_3D_noise_nuclei_segmentation/output/masks
+    custom_metadata:
+      role: mask_bundle
+relationships:
+  - from: profiles.csv
+    to: images
+    type: links_to_images_by
+    via_columns:
+      - PathName_Nuclei
+      - FileName_Nuclei
+    rocrate_predicate: http://schema.org/associatedMedia
+  - from: profiles.csv
+    to: images
+    type: filename_key_mapping
+    via_columns:
+      - Metadata_Well
+      - Metadata_Site
+      - Metadata_Frame
+    filename_patterns:
+      - nuclei*_image.tif
+    rocrate_predicate: http://schema.org/variableMeasured
+  - from: images
+    to: masks
+    type: derived_masks_from
+    derived_from_columns:
+      - FileName_Nuclei
+    filename_patterns:
+      - "{image_stem}SegmentationMask.tiff"
+    rocrate_predicate: http://www.w3.org/ns/prov#wasDerivedFrom

@@ -1,0 +1,5 @@
+/* Minimal custom style overrides for docs readability. */
+
+.bd-header .navbar-brand {
+  font-weight: 600;
+}

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: OME-IRIS
+message: If you use this project, please cite it using the metadata below.
+type: software
+authors:
+  - family-names: Bunten
+    given-names: Dave
+repository-code: https://github.com/bioio-devs/OME-IRIS
+license: MIT
+version: 0.1.0
+date-released: 2026-05-26
+abstract: >-
+  OME-IRIS is a minimal open bioimage dataset catalog for benchmarking image IO,
+  masks, metadata, and image-linked profile workflows.
+keywords:
+  - bioimaging
+  - benchmarking
+  - microscopy
+  - dataset catalog

@@ -1,0 +1,65 @@
+---
+id: pediatric-cancer-atlas
+name: >-
+  Pediatric cancer atlas profiling (pediatric_cancer_atlas_profiling) example
+description: >-
+  Small atlas sample for metadata and profile workflow benchmarking.
+tier: realistic
+license: CC-BY-4.0
+source_identifier: pediatric_cancer_atlas_profiling
+source:
+  repository: https://github.com/cytomining/CytoDataFrame
+  path: tests/data/cytotable/pediatric_cancer_atlas_profiling
+  url: >-
+    https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/pediatric_cancer_atlas_profiling
+formats:
+  - parquet
+  - tiff
+files:
+  - path: profiles.parquet
+    url: >-
+      https://github.com/cytomining/CytoDataFrame/raw/refs/heads/main/tests/data/cytotable/pediatric_cancer_atlas_profiling/BR00143976_shrunken.parquet
+    custom_metadata:
+      role: profile_table
+  - path: images
+    kind: directory
+    url: >-
+      https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/pediatric_cancer_atlas_profiling/images/orig
+    custom_metadata:
+      role: image_bundle
+  - path: outlines
+    kind: directory
+    url: >-
+      https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/pediatric_cancer_atlas_profiling/images/outlines
+    custom_metadata:
+      role: outline_bundle
+relationships:
+  - from: profiles.parquet
+    to: images
+    type: links_to_images_by
+    via_columns:
+      - Image_Metadata_Well
+      - Image_Metadata_Site
+      - Image_FileName_OrigDNA
+      - Image_FileName_OrigAGP
+      - Image_FileName_OrigRNA
+      - Image_FileName_OrigER
+      - Image_FileName_OrigMito
+      - Image_FileName_OrigBrightfield
+    rocrate_predicate: http://schema.org/associatedMedia
+  - from: profiles.parquet
+    to: images
+    type: filename_key_mapping
+    via_columns:
+      - Image_Metadata_Well
+      - Image_Metadata_Site
+    filename_patterns:
+      - "r{well_row:02d}c{well_col:02d}f{site:02d}p01-ch{channel}sk1fk1fl1.tiff"
+    rocrate_predicate: http://schema.org/variableMeasured
+  - from: images
+    to: outlines
+    type: derived_outlines_from
+    filename_patterns:
+      - CellsOutlines_BR00143976_{well}_{site}.tiff
+      - NucleiOutlines_BR00143976_{well}_{site}.tiff
+    rocrate_predicate: http://www.w3.org/ns/prov#wasDerivedFrom

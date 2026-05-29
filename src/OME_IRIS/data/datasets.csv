@@ -1,0 +1,5 @@
+id,name,tier,formats,benchmark_roles,license,source
+nuclei-3d,3D nuclei (CP_tutorial_3D_noise_nuclei_segmentation) example,tiny,"csv,tif,tiff",image_read|mask_read,CC-BY-4.0,CytoDataFrame
+nf1-cellpainting-shrunken,NF1 Cell Painting shrunken (NF1_cellpainting_data_shrunken) example,small,"parquet,tiff",profile_read|image_profile_link,CC-BY-4.0,CytoDataFrame
+jump-plate-example,JUMP plate BR00117006 (JUMP_plate_BR00117006) example,small,"parquet,tiff",image_read|image_profile_link,CC-BY-4.0,CytoDataFrame
+pediatric-cancer-atlas,Pediatric cancer atlas profiling (pediatric_cancer_atlas_profiling) example,realistic,"parquet,tiff",profile_read|metadata_read,CC-BY-4.0,CytoDataFrame

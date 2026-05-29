@@ -1,0 +1,47 @@
+---
+# used for running tests
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pre_commit_checks:
+    runs-on: ubuntu-24.04
+    steps:
+      # checks out the repo
+      - uses: actions/checkout@v6.0.2
+      # run pre-commit
+      - name: Python setup
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.11"
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v8.1.0
+      # use prek for speedy precommit results
+      - uses: j178/prek-action@v2.0.3
+      # run pre-commit ci lite for automated fixes
+      - uses: pre-commit-ci/lite-action@v1.1.0
+        if: ${{ !cancelled() }}
+  run_tests:
+    strategy:
+      matrix:
+        python_version: ["3.11", "3.12", "3.13", "3.14"]
+        os: [ubuntu-24.04, macos-14]
+    runs-on: ${{ matrix.os }}
+    env:
+      OS: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+      - name: Python setup
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: ${{ matrix.python_version }}
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v8.1.0
+      - name: Run pytest
+        run: uv run --frozen pytest
