@@ -1,19 +1,13 @@
-"""
-Tests for the cli module.
-"""
+from __future__ import annotations
 
-import subprocess
+from OME_IRIS.cli import build_parser
 
 
-def test_show_message_cli(my_data: str) -> None:
-    """
-    Test the show_message function from the CLI.
-    """
+def test_cli_has_fetch_verify_scaffold_and_export_rocrate_commands() -> None:
+    parser = build_parser()
+    help_text = parser.format_help()
 
-    output = subprocess.run(
-        ["uv", "run", "OME-IRIS", "show_message", f"--message='Hello terminal!'"],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    assert "Hello terminal!" in str(output.stdout)
+    assert "fetch" in help_text
+    assert "verify" in help_text
+    assert "scaffold" in help_text
+    assert "export-rocrate" in help_text

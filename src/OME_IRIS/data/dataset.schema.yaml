@@ -1,0 +1,104 @@
+id: https://ome-iris.org/schema/dataset
+name: ome_iris_dataset
+prefixes:
+  linkml: https://w3id.org/linkml/
+default_prefix: ome_iris_dataset
+default_range: string
+
+classes:
+  DatasetManifest:
+    attributes:
+      id:
+        required: true
+      name:
+        required: true
+      description:
+        required: true
+      tier:
+        required: true
+      license:
+        required: true
+      source_identifier:
+        required: true
+      source:
+        required: true
+        range: DatasetSource
+      formats:
+        required: true
+        multivalued: true
+      files:
+        required: true
+        multivalued: true
+        range: DatasetFile
+      relationships:
+        required: false
+        multivalued: true
+        range: DatasetRelationship
+      custom_metadata:
+        required: false
+        range: MetadataObject
+
+  DatasetSource:
+    attributes:
+      repository:
+        required: true
+      path:
+        required: true
+      url:
+        required: false
+      custom_metadata:
+        required: false
+        range: MetadataObject
+
+  DatasetFile:
+    attributes:
+      path:
+        required: true
+      kind:
+        required: false
+        permissible_values:
+          file:
+          directory:
+      url:
+        required: false
+      sha256:
+        required: false
+      archive_format:
+        required: false
+        permissible_values:
+          zip:
+          tar:
+      custom_metadata:
+        required: false
+        range: MetadataObject
+
+  DatasetRelationship:
+    attributes:
+      from:
+        required: true
+      to:
+        required: true
+      type:
+        required: true
+      rocrate_predicate:
+        required: true
+      via_columns:
+        required: false
+        multivalued: true
+      filename_patterns:
+        required: false
+        multivalued: true
+      derived_from_columns:
+        required: false
+        multivalued: true
+      custom_metadata:
+        required: false
+        range: MetadataObject
+
+  MetadataObject:
+    tree_root: true
+    attributes:
+      values:
+        multivalued: true
+        inlined: true
+        required: false

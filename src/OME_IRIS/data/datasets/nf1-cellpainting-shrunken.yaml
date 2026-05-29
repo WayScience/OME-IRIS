@@ -1,0 +1,62 @@
+id: nf1-cellpainting-shrunken
+name: NF1 Cell Painting shrunken (NF1_cellpainting_data_shrunken) example
+description: Small image-based profiling example for profile and image-link benchmarking.
+tier: small
+license: CC-BY-4.0
+source_identifier: NF1_cellpainting_data_shrunken
+source:
+  repository: https://github.com/cytomining/CytoDataFrame
+  path: tests/data/cytotable/NF1_cellpainting_data_shrunken
+  url: https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/NF1_cellpainting_data_shrunken
+formats:
+- parquet
+- tiff
+files:
+- path: profiles.parquet
+  url: https://github.com/cytomining/CytoDataFrame/raw/refs/heads/main/tests/data/cytotable/NF1_cellpainting_data_shrunken/Plate_2_with_image_data_shrunken.parquet
+  custom_metadata:
+    role: profile_table
+- path: images
+  kind: directory
+  url: https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/NF1_cellpainting_data_shrunken/Plate_2_images
+  custom_metadata:
+    role: image_bundle
+- path: masks
+  kind: directory
+  url: https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/NF1_cellpainting_data_shrunken/Plate_2_masks
+  custom_metadata:
+    role: mask_bundle
+relationships:
+- from: profiles.parquet
+  to: images
+  type: links_to_images_by
+  via_columns:
+  - Image_PathName_DAPI
+  - Image_FileName_DAPI
+  - Image_PathName_GFP
+  - Image_FileName_GFP
+  - Image_PathName_RFP
+  - Image_FileName_RFP
+  rocrate_predicate: http://schema.org/associatedMedia
+- from: profiles.parquet
+  to: images
+  type: filename_key_mapping
+  via_columns:
+  - Metadata_Well
+  - Image_Metadata_Site
+  filename_patterns:
+  - '{well}_01_1_{site}_DAPI_001.tif'
+  - '{well}_01_2_{site}_GFP_001.tif'
+  - '{well}_01_3_{site}_RFP_001.tif'
+  rocrate_predicate: http://schema.org/variableMeasured
+- from: images
+  to: masks
+  type: derived_masks_from
+  derived_from_columns:
+  - Image_FileName_DAPI
+  - Image_FileName_RFP
+  filename_patterns:
+  - '{well}_01_1_{site}_DAPI_001_MaskNuclei.tiff'
+  - '{well}_01_3_{site}_RFP_001_MaskCells.tiff'
+  - '{well}_01_3_{site}_RFP_001_MaskCytoplasm.tiff'
+  rocrate_predicate: http://www.w3.org/ns/prov#wasDerivedFrom

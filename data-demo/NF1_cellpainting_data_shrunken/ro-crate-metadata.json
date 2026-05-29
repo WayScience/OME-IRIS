@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.1/context",
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "NF1 Cell Painting shrunken (NF1_cellpainting_data_shrunken) example",
+      "description": "Small image-based profiling example for profile and image-link benchmarking.",
+      "license": "CC-BY-4.0",
+      "identifier": "NF1_cellpainting_data_shrunken",
+      "hasPart": [
+        {
+          "@id": "profiles.parquet"
+        },
+        {
+          "@id": "images"
+        },
+        {
+          "@id": "masks"
+        }
+      ]
+    },
+    {
+      "@id": "profiles.parquet",
+      "@type": "File",
+      "name": "profiles.parquet",
+      "contentUrl": "https://github.com/cytomining/CytoDataFrame/raw/refs/heads/main/tests/data/cytotable/NF1_cellpainting_data_shrunken/Plate_2_with_image_data_shrunken.parquet",
+      "http://schema.org/associatedMedia": [
+        {
+          "@id": "images"
+        }
+      ],
+      "http://schema.org/variableMeasured": [
+        {
+          "@id": "images"
+        }
+      ]
+    },
+    {
+      "@id": "images",
+      "@type": "Dataset",
+      "name": "images",
+      "contentUrl": "https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/NF1_cellpainting_data_shrunken/Plate_2_images",
+      "http://www.w3.org/ns/prov#wasDerivedFrom": [
+        {
+          "@id": "masks"
+        }
+      ]
+    },
+    {
+      "@id": "masks",
+      "@type": "Dataset",
+      "name": "masks",
+      "contentUrl": "https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/NF1_cellpainting_data_shrunken/Plate_2_masks"
+    }
+  ]
+}

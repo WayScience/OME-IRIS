@@ -6,6 +6,8 @@
 
 version: 2
 updates:
+  # Cooldown docs:
+  # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
   # GitHub Actions checks
   # See here for more information:
   # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
@@ -14,6 +16,8 @@ updates:
     schedule:
       # Check for updates to GitHub Actions every week
       interval: "monthly"
+    cooldown:
+      default-days: 7
     groups:
       github-actions:
         patterns:
@@ -29,6 +33,11 @@ updates:
     schedule:
       # Check for updates to uv environment files every week
       interval: "monthly"
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 3
     groups:
       python-packages:
         patterns:
@@ -40,6 +49,8 @@ updates:
     schedule:
       # Check for updates to pre-commit hooks every month
       interval: "monthly"
+    cooldown:
+      default-days: 7
     groups:
       pre-commit-hooks:
         patterns:

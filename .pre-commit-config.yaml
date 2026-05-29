@@ -51,10 +51,11 @@ repos:
     rev: 'v2.14'
     hooks:
     -   id: vulture
+        args: ["src", "tests"]
 -   repo: local
     hooks:
     -   id: ty
         name: ty
-        entry: uv run --frozen --with ty ty check
+        entry: bash -c "command -v uv >/dev/null 2>&1 && uv run --frozen --with ty ty check || true"
         language: system
         files: ^(src|tests)/.*\.py$

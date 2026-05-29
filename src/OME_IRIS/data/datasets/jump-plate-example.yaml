@@ -1,0 +1,40 @@
+id: jump-plate-example
+name: JUMP plate BR00117006 (JUMP_plate_BR00117006) example
+description: Plate-level cell painting benchmark subset focused on image IO and linking.
+tier: small
+license: CC-BY-4.0
+source_identifier: JUMP_plate_BR00117006
+source:
+  repository: https://github.com/cytomining/CytoDataFrame
+  path: tests/data/cytotable/JUMP_plate_BR00117006
+  url: https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/JUMP_plate_BR00117006
+formats:
+- parquet
+- tiff
+files:
+- path: BR00117006_shrunken.parquet
+  url: https://github.com/cytomining/CytoDataFrame/raw/refs/heads/main/tests/data/cytotable/JUMP_plate_BR00117006/BR00117006_shrunken.parquet
+  custom_metadata:
+    role: profile_table
+- path: images
+  kind: directory
+  url: https://github.com/cytomining/CytoDataFrame/tree/main/tests/data/cytotable/JUMP_plate_BR00117006/images
+  custom_metadata:
+    role: image_bundle
+relationships:
+- from: BR00117006_shrunken.parquet
+  to: images
+  type: links_to_images_by
+  via_columns:
+  - Image_PathName_OrigDNA
+  - Image_FileName_OrigDNA
+  rocrate_predicate: http://schema.org/associatedMedia
+- from: BR00117006_shrunken.parquet
+  to: images
+  type: filename_key_mapping
+  via_columns:
+  - Metadata_Well
+  - Image_Metadata_Site
+  filename_patterns:
+  - '{well}_s{site}_w1*.tiff'
+  rocrate_predicate: http://schema.org/variableMeasured

@@ -1,5 +1,4 @@
-"""
-Init file for example package.
-"""
+"""OME-IRIS package."""
 
-from .main import show_message
+__all__ = ["__version__"]
+__version__ = "0.1.0"

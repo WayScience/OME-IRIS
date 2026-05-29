@@ -1,11 +1,33 @@
 # Python API
 
+## CLI
+
 ```{eval-rst}
-OME_IRIS.main
--------------------
-.. automodule:: src.OME_IRIS.main
+.. automodule:: OME_IRIS.cli
    :members:
-   :private-members:
    :undoc-members:
-   :show-inheritance:
+```
+
+## Fetch
+
+```{eval-rst}
+.. automodule:: OME_IRIS.fetch
+   :members:
+   :undoc-members:
+```
+
+## Verify
+
+```{eval-rst}
+.. automodule:: OME_IRIS.verify
+   :members:
+   :undoc-members:
+```
+
+## Scaffold
+
+```{eval-rst}
+.. automodule:: OME_IRIS.scaffold
+   :members:
+   :undoc-members:
 ```
