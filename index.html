@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OME-IRIS &#8212; OME-IRIS  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cc83fd59" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python API" href="python-api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">OME-IRIS</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="python-api.html">
+    Python API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Examples
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/d33bs/OME-IRIS" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="python-api.html">
+    Python API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples.html">
+    Examples
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/d33bs/OME-IRIS" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ome-iris">
+<h1>OME-IRIS<a class="headerlink" href="#ome-iris" title="Link to this heading">#</a></h1>
+<img width="300" src="https://raw.githubusercontent.com/d33bs/OME-IRIS/main/docs/src/_static/ome-iris-logo.png?raw=true">
+<p><a class="reference external" href="https://github.com/d33bs/OME-IRIS/actions/workflows/run-tests.yml?query=branch%3Amain"><img alt="Build Status" src="https://github.com/d33bs/OME-IRIS/actions/workflows/run-tests.yml/badge.svg?branch=main" /></a>
+<a class="reference external" href="https://github.com/d33bs/OME-IRIS/actions/workflows/publish-docs.yml?query=branch%3Amain"><img alt="Publish Docs" src="https://github.com/d33bs/OME-IRIS/actions/workflows/publish-docs.yml/badge.svg?branch=main" /></a>
+<a class="reference external" href="https://github.com/d33bs/OME-IRIS/actions/workflows/publish-pypi.yml?query=branch%3Amain"><img alt="Publish PyPI" src="https://github.com/d33bs/OME-IRIS/actions/workflows/publish-pypi.yml/badge.svg?branch=main" /></a>
+<a class="reference external" href="https://github.com/astral-sh/ruff"><img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" /></a>
+<a class="reference external" href="https://github.com/astral-sh/uv"><img alt="uv" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" /></a>
+<a class="reference external" href="https://github.com/d33bs/OME-IRIS/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/d33bs/OME-IRIS" /></a>
+<a class="reference external" href="https://www.python.org/downloads/"><img alt="python" src="https://img.shields.io/badge/python-3.11%2B-blue.svg" /></a></p>
+<p>OME-IRIS is a tiny open bioimage dataset catalog for benchmarking image IO, masks, metadata, and image-linked profile workflows.</p>
+<p>Think of it as IRIS.csv, but for bioimaging and adjacent data workflows.</p>
+<section id="what-this-is">
+<h2>What this is<a class="headerlink" href="#what-this-is" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A lightweight manifest catalog for small benchmark datasets</p></li>
+<li><p>A fetch + verify workflow with a single CLI</p></li>
+<li><p>LinkML-based schema definitions for dataset manifests</p></li>
+</ul>
+</section>
+<section id="what-this-is-not">
+<h2>What this is not<a class="headerlink" href="#what-this-is-not" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Not a data portal</p></li>
+<li><p>Not DVC-based</p></li>
+<li><p>Not a large-file git storage approach</p></li>
+<li><p>Not a full ontology or end-to-end benchmark system yet</p></li>
+</ul>
+</section>
+<section id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--tier<span class="w"> </span>small
+uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>verify
+uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>export-rocrate<span class="w"> </span>--dataset<span class="w"> </span>nf1-cellpainting-shrunken
+</pre></div>
+</div>
+<p>Fetch output modes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--tier<span class="w"> </span>small<span class="w"> </span>--verbose<span class="w">  </span><span class="c1"># show per-file labels + downloader progress</span>
+uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--tier<span class="w"> </span>small<span class="w"> </span>--silent<span class="w">   </span><span class="c1"># suppress downloader progress output</span>
+</pre></div>
+</div>
+</section>
+<section id="what-fetch-does">
+<h2>What <code class="docutils literal notranslate"><span class="pre">fetch</span></code> does<a class="headerlink" href="#what-fetch-does" title="Link to this heading">#</a></h2>
+<p>High-level flow when you run <code class="docutils literal notranslate"><span class="pre">ome-iris</span> <span class="pre">fetch</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Loads dataset manifests from <code class="docutils literal notranslate"><span class="pre">--manifests-dir</span></code>.</p></li>
+<li><p>Applies optional filters (<code class="docutils literal notranslate"><span class="pre">--dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">--tier</span></code>).</p></li>
+<li><p>Creates local dataset roots under <code class="docutils literal notranslate"><span class="pre">--data-dir/&lt;source_identifier&gt;/</span></code>.</p></li>
+<li><p>Writes <code class="docutils literal notranslate"><span class="pre">ro-crate-metadata.json</span></code> into each dataset root.</p></li>
+<li><p>Iterates over each <code class="docutils literal notranslate"><span class="pre">files</span></code> entry:</p>
+<ul class="simple">
+<li><p>for <code class="docutils literal notranslate"><span class="pre">kind:</span> <span class="pre">file</span></code>: downloads the file URL (or skips if already present)</p></li>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">kind:</span> <span class="pre">directory</span></code>: traverses/downloads directory contents (or extracts archive sources)</p></li>
+</ul>
+</li>
+<li><p>Reports a summary:</p>
+<ul class="simple">
+<li><p>downloaded count + item list</p></li>
+<li><p>skipped count + item list</p></li>
+<li><p>missing URLs</p></li>
+<li><p>failed downloads</p></li>
+</ul>
+</li>
+</ol>
+<p>Output layout example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/
+  NF1_cellpainting_data_shrunken/
+    ro-crate-metadata.json
+    profiles.parquet
+    images/
+    masks/
+</pre></div>
+</div>
+<p>Local files are stored under <code class="docutils literal notranslate"><span class="pre">./data/</span></code> by default.
+Each dataset directory also gets <code class="docutils literal notranslate"><span class="pre">ro-crate-metadata.json</span></code> with source/provenance metadata from the manifest.</p>
+<p>To use another data directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--data-dir<span class="w"> </span>/tmp/ome-iris-data
+uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>verify<span class="w"> </span>--data-dir<span class="w"> </span>/tmp/ome-iris-data
+</pre></div>
+</div>
+</section>
+<section id="add-a-dataset">
+<h2>Add a dataset<a class="headerlink" href="#add-a-dataset" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Add or update a dataset manifest and catalog metadata.</p></li>
+<li><p>Include source, formats, and file-level metadata.</p></li>
+<li><p>Run:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>verify
+</pre></div>
+</div>
+<p>Starter scaffolding command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>scaffold<span class="w"> </span>--source-path<span class="w"> </span>/path/to/JUMP_plate_BR00117006
+uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>scaffold<span class="w"> </span>--source-path<span class="w"> </span>/path/to/JUMP_plate_BR00117006<span class="w"> </span>--append-csv
+uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>scaffold<span class="w"> </span>--source-path<span class="w"> </span>/path/to/JUMP_plate_BR00117006<span class="w"> </span>--include-directory-entry<span class="w"> </span>--directory-path<span class="w"> </span>images<span class="w"> </span>--archive-format<span class="w"> </span>zip
+</pre></div>
+</div>
+<p>The command guesses a dataset id/name/formats, writes a starter YAML manifest, and prints a suggested <code class="docutils literal notranslate"><span class="pre">datasets.csv</span></code> row.</p>
+<section id="file-entry-patterns">
+<h3>File entry patterns<a class="headerlink" href="#file-entry-patterns" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source_identifier</span></code> is required at the top level of each manifest.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">files[].path</span></code> values are relative to <code class="docutils literal notranslate"><span class="pre">data/&lt;source_identifier&gt;/</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sha256</span></code> is optional for file entries.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">kind:</span> <span class="pre">directory</span></code> to fetch everything under a directory source.</p>
+<ul>
+<li><p>For GitHub tree URLs (<code class="docutils literal notranslate"><span class="pre">https://github.com/&lt;owner&gt;/&lt;repo&gt;/tree/&lt;ref&gt;/&lt;path&gt;</span></code>), OME-IRIS traverses files under that subtree.</p></li>
+<li><p>For local directory paths, OME-IRIS recursively copies files.</p></li>
+<li><p>For archive URLs, set <code class="docutils literal notranslate"><span class="pre">archive_format</span></code> (<code class="docutils literal notranslate"><span class="pre">zip</span></code> or <code class="docutils literal notranslate"><span class="pre">tar</span></code>) to extract an archive into the destination directory.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="relationships">
+<h3>Relationships<a class="headerlink" href="#relationships" title="Link to this heading">#</a></h3>
+<p>Use an optional top-level <code class="docutils literal notranslate"><span class="pre">relationships</span></code> list to describe links between dataset components.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span></code>: source file path (must match a <code class="docutils literal notranslate"><span class="pre">files[].path</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: target file path (must match a <code class="docutils literal notranslate"><span class="pre">files[].path</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: relationship label (for example <code class="docutils literal notranslate"><span class="pre">links_to_images_by</span></code>, <code class="docutils literal notranslate"><span class="pre">links_to_masks_by</span></code>, <code class="docutils literal notranslate"><span class="pre">references_metadata</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rocrate_predicate</span></code>: explicit RO-Crate/JSON-LD predicate URI for export (required)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">via_columns</span></code> (optional): explicit table columns used for linking</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename_patterns</span></code> (optional): standardized filename templates used by the relationship</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">derived_from_columns</span></code> (optional): columns used when deriving one component from another (for example images -&gt; masks)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">files</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profiles.parquet</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">directory</span>
+
+<span class="nt">relationships</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profiles.parquet</span>
+<span class="w">    </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">links_to_images_by</span>
+<span class="w">    </span><span class="nt">rocrate_predicate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://schema.org/associatedMedia</span>
+</pre></div>
+</div>
+<p>Example directory entry:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">files</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jump-plate/images</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">directory</span>
+<span class="w">    </span><span class="nt">archive_format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zip</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/jump-plate-images.zip</span>
+<span class="w">    </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">  </span><span class="c1"># optional</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="custom-metadata-first-class">
+<h2>Custom metadata (first-class)<a class="headerlink" href="#custom-metadata-first-class" title="Link to this heading">#</a></h2>
+<p>OME-IRIS supports custom metadata as a first-class field via <code class="docutils literal notranslate"><span class="pre">custom_metadata</span></code> objects at manifest, source, and file levels.</p>
+<p>Rules:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_metadata</span></code> must be an object/map.</p></li>
+<li><p>Keys must be strings.</p></li>
+<li><p>Values may be strings, numbers, booleans, null, lists, or nested objects.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jump-plate</span>
+<span class="nt">source_identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JUMP_plate_BR00117006</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JUMP plate BR00117006 (JUMP_plate_BR00117006) example</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Plate-level cell painting benchmark subset.</span>
+<span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">small</span>
+<span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CC-BY-4.0</span>
+<span class="nt">custom_metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">study</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jump-cp</span>
+<span class="w">  </span><span class="nt">species</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">human</span>
+<span class="nt">source</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/repo</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datasets/JUMP_plate_BR00117006</span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/repo/tree/main/datasets/JUMP_plate_BR00117006</span>
+<span class="nt">formats</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">csv</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">tiff</span><span class="p p-Indicator">]</span>
+<span class="nt">files</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profiles.csv</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/files/profiles.csv</span>
+<span class="w">    </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;...&quot;</span>
+<span class="w">    </span><span class="nt">custom_metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profile_table</span>
+</pre></div>
+</div>
+</section>
+<section id="why-large-files-are-not-committed">
+<h2>Why large files are not committed<a class="headerlink" href="#why-large-files-are-not-committed" title="Link to this heading">#</a></h2>
+<p>Large image/profile files make repositories slow and fragile for contributors and CI. OME-IRIS tracks metadata and download locations, while actual data is fetched locally when needed.</p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
+<p>Build docs locally:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync<span class="w"> </span>--group<span class="w"> </span>docs
+uv<span class="w"> </span>run<span class="w"> </span>--frozen<span class="w"> </span>sphinx-build<span class="w"> </span>docs/src<span class="w"> </span>docs/build
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python-api.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python-api.html#module-OME_IRIS.cli">CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.cli.build_parser"><code class="docutils literal notranslate"><span class="pre">build_parser()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python-api.html#module-OME_IRIS.fetch">Fetch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.fetch.FetchResult"><code class="docutils literal notranslate"><span class="pre">FetchResult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.fetch.fetch_datasets"><code class="docutils literal notranslate"><span class="pre">fetch_datasets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.fetch.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python-api.html#module-OME_IRIS.verify">Verify</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.verify.VerifyResult"><code class="docutils literal notranslate"><span class="pre">VerifyResult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.verify.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.verify.verify_datasets"><code class="docutils literal notranslate"><span class="pre">verify_datasets()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python-api.html#module-OME_IRIS.scaffold">Scaffold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.scaffold.ScaffoldResult"><code class="docutils literal notranslate"><span class="pre">ScaffoldResult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.scaffold.scaffold_dataset_manifest"><code class="docutils literal notranslate"><span class="pre">scaffold_dataset_manifest()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#fetch-all-small-tier-datasets">Fetch all <code class="docutils literal notranslate"><span class="pre">small</span></code> tier datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#verify-local-data">Verify local data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#use-a-custom-local-data-directory">Use a custom local data directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#scaffold-a-new-dataset-manifest-from-an-external-source-path">Scaffold a new dataset manifest from an external source path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#scaffold-and-append-a-starter-csv-row">Scaffold and append a starter CSV row</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="python-api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-is">What this is</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-is-not">What this is not</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-fetch-does">What <code class="docutils literal notranslate"><span class="pre">fetch</span></code> does</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-dataset">Add a dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-entry-patterns">File entry patterns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationships">Relationships</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-metadata-first-class">Custom metadata (first-class)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-large-files-are-not-committed">Why large files are not committed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, OME-IRIS contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
