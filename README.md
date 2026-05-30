@@ -10,9 +10,11 @@
 [![License](https://img.shields.io/github/license/d33bs/OME-IRIS)](https://github.com/d33bs/OME-IRIS/blob/main/LICENSE)
 [![python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 
-OME-IRIS is a tiny open bioimage dataset catalog for benchmarking image IO, masks, metadata, and image-linked profile workflows.
+OME-IRIS is an open bioimage dataset catalog for benchmarking image input/output (IO), transformations, metadata management, and bioimage-linked workflows.
 
-Think of it as IRIS.csv, but for bioimaging and adjacent data workflows.
+We also provide a small Python package by the same name (`ome_iris`) to help fetch and validate the datasets in the catalog.
+
+Inspired by both the classic `iris.csv` dataset and the iris of the eye that brings images into focus, OME-IRIS aims to provide a collection of reference datasets for evaluating interoperable bioimage data formats, tools, and workflows.
 
 ## What this is
 
