@@ -1,10 +1,9 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = [ "setuptools>=82.0.1" ]
+requires = [ "setuptools>=82.0.1", "setuptools-scm>=8" ]
 
 [project]
 name = "ome-iris"
-version = "0.1.0"
 description = "A tiny open bioimage dataset catalog with fetch and verify workflows."
 readme = "README.md"
 authors = [ { name = "Dave Bunten" } ]
@@ -16,6 +15,7 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
 ]
+dynamic = [ "version" ]
 dependencies = [
   "pandas>=3.0.3",
   "pillow>=10",
@@ -45,6 +45,11 @@ package-data.OME_IRIS = [
 ]
 packages.find.where = [ "src" ]
 packages.find.include = [ "OME_IRIS*" ]
+
+[tool.setuptools_scm]
+write_to = "src/OME_IRIS/_version.py"
+version_scheme = "guess-next-dev"
+local_scheme = "node-and-date"
 
 [tool.pytest]
 ini_options.pythonpath = [ "src" ]
