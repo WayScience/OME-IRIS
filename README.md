@@ -4,7 +4,7 @@
 
 [![Build Status](https://github.com/d33bs/OME-IRIS/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/d33bs/OME-IRIS/actions/workflows/run-tests.yml?query=branch%3Amain)
 [![Publish Docs](https://github.com/d33bs/OME-IRIS/actions/workflows/publish-docs.yml/badge.svg?branch=main)](https://github.com/d33bs/OME-IRIS/actions/workflows/publish-docs.yml?query=branch%3Amain)
-[![Publish PyPI](https://github.com/d33bs/OME-IRIS/actions/workflows/publish-pypi.yml/badge.svg?branch=main)](https://github.com/d33bs/OME-IRIS/actions/workflows/publish-pypi.yml?query=branch%3Amain)
+[![Publish PyPI](https://github.com/d33bs/OME-IRIS/actions/workflows/publish-pypi.yml/badge.svg)](https://github.com/d33bs/OME-IRIS/actions/workflows/publish-pypi.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![License](https://img.shields.io/github/license/d33bs/OME-IRIS)](https://github.com/d33bs/OME-IRIS/blob/main/LICENSE)

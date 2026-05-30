@@ -13,8 +13,8 @@ repository-code: https://github.com/d33bs/OME-IRIS
 license: BSD-3-Clause
 date-released: 2026-05-26
 abstract: >-
-  OME-IRIS is a minimal open bioimage dataset catalog for benchmarking image IO,
-  masks, metadata, and image-linked profile workflows.
+  OME-IRIS is an open bioimage dataset catalog for benchmarking image IO,
+  transformations, metadata management, and bioimage-linked workflows.
 keywords:
   - bioimaging
   - benchmarking

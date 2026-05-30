@@ -4,7 +4,10 @@ requires = [ "setuptools>=82.0.1", "setuptools-scm>=8" ]
 
 [project]
 name = "ome-iris"
-description = "A tiny open bioimage dataset catalog with fetch and verify workflows."
+description = """\
+  Open bioimage dataset catalog for benchmarking image IO, transformations, metadata management, and bioimage-linked \
+  workflows.\
+  """
 readme = "README.md"
 authors = [ { name = "Dave Bunten" } ]
 requires-python = ">=3.11"
