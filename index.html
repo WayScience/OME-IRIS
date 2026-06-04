@@ -364,6 +364,23 @@ uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </
 uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>export-rocrate<span class="w"> </span>--dataset<span class="w"> </span>nf1-cellpainting-shrunken
 </pre></div>
 </div>
+<p>Download a reproducible subset for local development or benchmarking:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>download<span class="w"> </span>nf1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>.benchmark-data/ome-iris/nf1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--preset<span class="w"> </span>tiny<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--channel<span class="w"> </span>DAPI
+</pre></div>
+</div>
+<p>Python API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ome_iris</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">datasets</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+    <span class="s2">&quot;nf1&quot;</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;.benchmark-data/ome-iris/nf1&quot;</span><span class="p">,</span>
+    <span class="n">subset</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;channels&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;DAPI&quot;</span><span class="p">]},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>Fetch output modes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--tier<span class="w"> </span>small<span class="w"> </span>--verbose<span class="w">  </span><span class="c1"># show per-file labels + downloader progress</span>
 uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--tier<span class="w"> </span>small<span class="w"> </span>--silent<span class="w">   </span><span class="c1"># suppress downloader progress output</span>
@@ -407,6 +424,23 @@ Each dataset directory also gets <code class="docutils literal notranslate"><spa
 <p>To use another data directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>fetch<span class="w"> </span>--data-dir<span class="w"> </span>/tmp/ome-iris-data
 uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>verify<span class="w"> </span>--data-dir<span class="w"> </span>/tmp/ome-iris-data
+</pre></div>
+</div>
+</section>
+<section id="what-download-does">
+<h2>What <code class="docutils literal notranslate"><span class="pre">download</span></code> does<a class="headerlink" href="#what-download-does" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ome-iris</span> <span class="pre">download</span></code> creates a small, reproducible subset under the exact <code class="docutils literal notranslate"><span class="pre">--output</span></code>
+directory. It supports named dataset aliases such as <code class="docutils literal notranslate"><span class="pre">nf1</span></code>, preset sizes
+(<code class="docutils literal notranslate"><span class="pre">tiny</span></code>, <code class="docutils literal notranslate"><span class="pre">small</span></code>, <code class="docutils literal notranslate"><span class="pre">benchmark</span></code>), image limits, channel filters, plate/well/site
+filters, and Z/T/C ranges where filenames expose those values.</p>
+<p>Downloaded subsets include <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code> with the source dataset, selected
+subset options, downloaded file paths, source URLs, SHA-256 checksums, file
+sizes, image shapes, dtypes, and file metadata. Existing files are reused and
+included in the manifest. Use <code class="docutils literal notranslate"><span class="pre">--validate-only</span></code> to verify an existing subset
+cache against its manifest without downloading data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ome-iris<span class="w"> </span>download<span class="w"> </span>nf1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>.benchmark-data/ome-iris/nf1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--validate-only
 </pre></div>
 </div>
 </section>
@@ -537,6 +571,11 @@ uv<span class="w"> </span>run<span class="w"> </span>--frozen<span class="w"> </
 <li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.fetch.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="python-api.html#module-OME_IRIS.datasets">Dataset subsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.datasets.DownloadResult"><code class="docutils literal notranslate"><span class="pre">DownloadResult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.datasets.download"><code class="docutils literal notranslate"><span class="pre">download()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="python-api.html#module-OME_IRIS.verify">Verify</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.verify.VerifyResult"><code class="docutils literal notranslate"><span class="pre">VerifyResult</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="python-api.html#OME_IRIS.verify.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
@@ -605,6 +644,7 @@ uv<span class="w"> </span>run<span class="w"> </span>--frozen<span class="w"> </
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-is-not">What this is not</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-fetch-does">What <code class="docutils literal notranslate"><span class="pre">fetch</span></code> does</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-download-does">What <code class="docutils literal notranslate"><span class="pre">download</span></code> does</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-dataset">Add a dataset</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-entry-patterns">File entry patterns</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationships">Relationships</a></li>

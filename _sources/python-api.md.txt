@@ -16,6 +16,14 @@
    :undoc-members:
 ```
 
+## Dataset subsets
+
+```{eval-rst}
+.. automodule:: OME_IRIS.datasets
+   :members:
+   :undoc-members:
+```
+
 ## Verify
 
 ```{eval-rst}
