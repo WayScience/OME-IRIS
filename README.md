@@ -1,10 +1,10 @@
 # OME-IRIS
 
-<img width="300" src="https://raw.githubusercontent.com/d33bs/OME-IRIS/main/docs/src/_static/ome-iris-logo.png?raw=true">
+<img width="300" src="https://raw.githubusercontent.com/wayscience/OME-IRIS/main/docs/src/_static/ome-iris-logo.png?raw=true">
 
 ![PyPI - Version](https://img.shields.io/pypi/v/ome-iris)
 [![python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
-[![Build Status](https://github.com/d33bs/OME-IRIS/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/d33bs/OME-IRIS/actions/workflows/run-tests.yml?query=branch%3Amain)
+[![Build Status](https://github.com/wayscience/OME-IRIS/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/wayscience/OME-IRIS/actions/workflows/run-tests.yml?query=branch%3Amain)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
