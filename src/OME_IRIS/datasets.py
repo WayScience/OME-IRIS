@@ -84,7 +84,9 @@ def _merge_subset(preset: str | None, subset: dict[str, Any] | None) -> dict[str
             merged.update(PRESET_SUBSETS[preset])
         except KeyError as exc:
             choices = ", ".join(sorted(PRESET_SUBSETS))
-            raise ValueError(f"Unknown preset {preset!r}; choose one of: {choices}") from exc
+            raise ValueError(
+                f"Unknown preset {preset!r}; choose one of: {choices}"
+            ) from exc
     if subset:
         merged.update(
             {key: value for key, value in subset.items() if value is not None}
@@ -119,7 +121,9 @@ def _directory_files(url: str) -> list[tuple[str, str]]:
         files = []
         for source_file in local_path.rglob("*"):
             if source_file.is_file():
-                files.append((str(source_file.relative_to(local_path)), str(source_file)))
+                files.append(
+                    (str(source_file.relative_to(local_path)), str(source_file))
+                )
         return sorted(files)
     return _github_tree_files(url)
 
@@ -170,11 +174,15 @@ def _matches_subset(path: str, subset: dict[str, Any]) -> bool:
     )
 
 
-def _select_files(file_rec: dict[str, Any], subset: dict[str, Any]) -> list[dict[str, str]]:
+def _select_files(
+    file_rec: dict[str, Any], subset: dict[str, Any]
+) -> list[dict[str, str]]:
     kind = file_rec.get("kind", "file")
     if kind != "directory":
         url = (file_rec.get("url") or "").strip()
-        return [{"relative_path": str(file_rec["path"]), "source_url": url}] if url else []
+        return (
+            [{"relative_path": str(file_rec["path"]), "source_url": url}] if url else []
+        )
 
     selected = []
     for relative, source_url in _directory_files(str(file_rec.get("url", ""))):
