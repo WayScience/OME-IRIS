@@ -37,6 +37,27 @@ uv run ome-iris verify
 uv run ome-iris export-rocrate --dataset nf1-cellpainting-shrunken
 ```
 
+Download a reproducible subset for local development or benchmarking:
+
+```bash
+uv run ome-iris download nf1 \
+  --output .benchmark-data/ome-iris/nf1 \
+  --preset tiny \
+  --channel DAPI
+```
+
+Python API:
+
+```python
+from ome_iris import datasets
+
+datasets.download(
+    "nf1",
+    output_dir=".benchmark-data/ome-iris/nf1",
+    subset={"images": 20, "channels": ["DAPI"]},
+)
+```
+
 Fetch output modes:
 
 ```bash
@@ -80,6 +101,25 @@ To use another data directory:
 ```bash
 uv run ome-iris fetch --data-dir /tmp/ome-iris-data
 uv run ome-iris verify --data-dir /tmp/ome-iris-data
+```
+
+## What `download` does
+
+`ome-iris download` creates a small, reproducible subset under the exact `--output`
+directory. It supports named dataset aliases such as `nf1`, preset sizes
+(`tiny`, `small`, `benchmark`), image limits, channel filters, plate/well/site
+filters, and Z/T/C ranges where filenames expose those values.
+
+Downloaded subsets include `manifest.json` with the source dataset, selected
+subset options, downloaded file paths, source URLs, SHA-256 checksums, file
+sizes, image shapes, dtypes, and file metadata. Existing files are reused and
+included in the manifest. Use `--validate-only` to verify an existing subset
+cache against its manifest without downloading data:
+
+```bash
+uv run ome-iris download nf1 \
+  --output .benchmark-data/ome-iris/nf1 \
+  --validate-only
 ```
 
 ## Add a dataset
