@@ -39,15 +39,19 @@ docs = [
 ]
 
 [tool.setuptools]
-package-dir = { "" = "src" }
+package-dir = { "" = "src", ome_iris = "src/OME_IRIS" }
 include-package-data = true
 package-data.OME_IRIS = [
   "data/*.yaml",
   "data/*.csv",
   "data/datasets/*.yaml",
 ]
-packages.find.where = [ "src" ]
-packages.find.include = [ "OME_IRIS*" ]
+package-data.ome_iris = [
+  "data/*.yaml",
+  "data/*.csv",
+  "data/datasets/*.yaml",
+]
+packages = [ "OME_IRIS", "ome_iris" ]
 
 [tool.setuptools_scm]
 write_to = "src/OME_IRIS/_version.py"

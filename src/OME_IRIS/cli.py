@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 from OME_IRIS.clean import clean_local_data
+from OME_IRIS.datasets import download
 from OME_IRIS.fetch import fetch_datasets
 from OME_IRIS.rocrate import export_rocrate_metadata
 from OME_IRIS.scaffold import scaffold_dataset_manifest
@@ -15,6 +16,24 @@ def build_parser() -> argparse.ArgumentParser:
         prog="ome-iris", description="Fetch and verify OME-IRIS datasets"
     )
     sub = parser.add_subparsers(dest="command", required=True)
+
+    download_cmd = sub.add_parser(
+        "download", help="Download a reproducible dataset subset"
+    )
+    download_cmd.add_argument("dataset")
+    download_cmd.add_argument("--output", required=True)
+    download_cmd.add_argument("--preset", choices=["tiny", "small", "benchmark"])
+    download_cmd.add_argument("--limit-images", type=int)
+    download_cmd.add_argument("--channel", dest="channels", action="append")
+    download_cmd.add_argument("--plate", action="append")
+    download_cmd.add_argument("--well", action="append")
+    download_cmd.add_argument("--site", action="append")
+    download_cmd.add_argument("--z-range", nargs=2, type=int, metavar=("START", "STOP"))
+    download_cmd.add_argument("--t-range", nargs=2, type=int, metavar=("START", "STOP"))
+    download_cmd.add_argument("--c-range", nargs=2, type=int, metavar=("START", "STOP"))
+    download_cmd.add_argument("--validate-only", action="store_true")
+    download_cmd.add_argument("--manifests-dir", default="src/OME_IRIS/data/datasets")
+    download_cmd.add_argument("--silent", action="store_true")
 
     fetch_cmd = sub.add_parser("fetch", help="Fetch dataset files")
     fetch_cmd.add_argument("--dataset", dest="dataset_id")
@@ -67,6 +86,38 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
+
+    if args.command == "download":
+        subset = {
+            "images": args.limit_images,
+            "channels": args.channels,
+            "plate": args.plate,
+            "well": args.well,
+            "site": args.site,
+            "z": tuple(args.z_range) if args.z_range else None,
+            "t": tuple(args.t_range) if args.t_range else None,
+            "c": tuple(args.c_range) if args.c_range else None,
+        }
+        result = download(
+            args.dataset,
+            output_dir=Path(args.output),
+            subset=subset,
+            preset=args.preset,
+            manifests_dir=Path(args.manifests_dir),
+            validate_only=args.validate_only,
+            silent=args.silent,
+        )
+        print(f"Downloaded: {result.downloaded}")
+        print(f"Skipped: {result.skipped}")
+        print(f"Validated: {result.validated}")
+        if result.manifest_path:
+            print(f"Manifest: {result.manifest_path}")
+        if result.failed:
+            print("Failed:")
+            for item in result.failed:
+                print(f"- {item}")
+            return 1
+        return 0
 
     if args.command == "fetch":
         result = fetch_datasets(
