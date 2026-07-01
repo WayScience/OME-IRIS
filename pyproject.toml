@@ -39,24 +39,24 @@ docs = [
 ]
 
 [tool.setuptools]
+packages = [ "OME_IRIS", "ome_iris" ]
 package-dir = { "" = "src", ome_iris = "src/OME_IRIS" }
 include-package-data = true
 package-data.OME_IRIS = [
-  "data/*.yaml",
   "data/*.csv",
+  "data/*.yaml",
   "data/datasets/*.yaml",
 ]
 package-data.ome_iris = [
-  "data/*.yaml",
   "data/*.csv",
+  "data/*.yaml",
   "data/datasets/*.yaml",
 ]
-packages = [ "OME_IRIS", "ome_iris" ]
 
 [tool.setuptools_scm]
-write_to = "src/OME_IRIS/_version.py"
 version_scheme = "guess-next-dev"
 local_scheme = "node-and-date"
+write_to = "src/OME_IRIS/_version.py"
 
 [tool.pytest]
 ini_options.pythonpath = [ "src" ]
