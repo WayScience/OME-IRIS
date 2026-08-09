@@ -42,12 +42,12 @@ docs = [
 packages = [ "OME_IRIS", "ome_iris" ]
 package-dir = { "" = "src", ome_iris = "src/OME_IRIS" }
 include-package-data = true
-package-data.OME_IRIS = [
+package-data.ome_iris = [
   "data/*.csv",
   "data/*.yaml",
   "data/datasets/*.yaml",
 ]
-package-data.ome_iris = [
+package-data.OME_IRIS = [
   "data/*.csv",
   "data/*.yaml",
   "data/datasets/*.yaml",
