@@ -1,20 +1,21 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass, field
 import hashlib
 import json
-from pathlib import Path
 import shutil
 import subprocess
 import tarfile
 import tempfile
+import zipfile
+from dataclasses import dataclass, field
+from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import urlopen, urlretrieve
-import zipfile
+
+import yaml
 
 from OME_IRIS.rocrate import write_rocrate_metadata
-import yaml
 
 
 @dataclass
@@ -91,11 +92,7 @@ def _extract_archive(
         suffixes = "".join(archive_path.suffixes).lower()
         if suffixes.endswith(".zip"):
             fmt = "zip"
-        elif (
-            suffixes.endswith(".tar.gz")
-            or suffixes.endswith(".tgz")
-            or suffixes.endswith(".tar")
-        ):
+        elif suffixes.endswith((".tar.gz", ".tgz", ".tar")):
             fmt = "tar"
         else:
             raise ValueError(f"Unable to infer archive format for {archive_path.name}")

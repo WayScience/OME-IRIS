@@ -3,8 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from PIL import Image
 import yaml
+from PIL import Image
 
 from OME_IRIS import datasets
 from ome_iris import datasets as lower_datasets
