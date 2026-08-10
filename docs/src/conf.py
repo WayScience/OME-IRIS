@@ -9,7 +9,7 @@ basedir = str(pathlib.Path(__file__).parent.parent.parent.resolve())
 sys.path.insert(0, basedir)
 
 project = "OME-IRIS"
-copyright = "2026, OME-IRIS contributors"  # noqa: A001
+copyright = "2026, OME-IRIS contributors"
 author = "OME-IRIS contributors"
 
 extensions = [

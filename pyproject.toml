@@ -53,6 +53,11 @@ version_scheme = "guess-next-dev"
 local_scheme = "node-and-date"
 write_to = "src/OME_IRIS/_version.py"
 
+[tool.ruff]
+# OME_IRIS is an intentional uppercase package name mirrored by a lowercase
+# `ome_iris` alias (see [tool.setuptools] packages above).
+lint.ignore = [ "N999" ]
+
 [tool.pytest]
 ini_options.pythonpath = [ "src" ]
 ini_options.addopts = [ "-q" ]

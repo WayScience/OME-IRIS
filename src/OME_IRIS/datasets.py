@@ -1,18 +1,17 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
 import hashlib
 import json
-from pathlib import Path
 import re
+from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 from urllib.request import urlopen
 
-from PIL import Image
 import yaml
+from PIL import Image
 
 from OME_IRIS.fetch import _download, _parse_github_tree_url
-
 
 PRESET_SUBSETS: dict[str, dict[str, Any]] = {
     "tiny": {"images": 5},
