@@ -57,6 +57,10 @@ write_to = "src/OME_IRIS/_version.py"
 # OME_IRIS is an intentional uppercase package name mirrored by a lowercase
 # `ome_iris` alias (see [tool.setuptools] packages above).
 lint.ignore = [ "N999" ]
+# Declare both names explicitly: isort's directory-based first-party
+# detection is filesystem case-sensitivity dependent, and `ome_iris` only
+# resolves as a real path on case-insensitive filesystems (e.g. macOS).
+lint.isort.known-first-party = [ "OME_IRIS", "ome_iris" ]
 
 [tool.pytest]
 ini_options.pythonpath = [ "src" ]
