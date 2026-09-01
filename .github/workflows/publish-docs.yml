@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v9.0.0
+        uses: astral-sh/setup-uv@v10.0.1
       - name: Install docs dependencies
         run: uv sync --frozen --group docs
       - name: Build documentation
@@ -37,7 +37,7 @@ jobs:
           find ./build -type d -name '.doctrees' -exec rm -rf {} +
           cp -r build/* ../pages/
       - name: Deploy documentation
-        uses: JamesIves/github-pages-deploy-action@v4.8.0
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: pages
           folder: pages
