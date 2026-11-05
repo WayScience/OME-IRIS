@@ -16,15 +16,15 @@ jobs:
       - uses: actions/checkout@v7.0.1
       # run pre-commit
       - name: Python setup
-        uses: actions/setup-python@v7.0.0
+        uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.11"
       - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v10.2.0
+        uses: astral-sh/setup-uv@v10.3.3
       # use prek for speedy precommit results
-      - uses: j178/prek-action@v3.0.0
+      - uses: j178/prek-action@v3.1.0
       # run pre-commit ci lite for automated fixes
-      - uses: pre-commit-ci/lite-action@v1.1.0
+      - uses: pre-commit-ci/lite-action@v1.2.0
         if: ${{ !cancelled() }}
   run_tests:
     strategy:
@@ -38,10 +38,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7.0.1
       - name: Python setup
-        uses: actions/setup-python@v7.0.0
+        uses: actions/setup-python@v7.1.0
         with:
           python-version: ${{ matrix.python_version }}
       - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v10.2.0
+        uses: astral-sh/setup-uv@v10.3.3
       - name: Run pytest
         run: uv run --frozen pytest
